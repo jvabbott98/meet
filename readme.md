@@ -1,3 +1,6 @@
+# Meet App
+This app will allow users to search for various events across different cities in order to help them find and attend events that they are interested in. This is a serverless, progressive web application built with React and wile taking a Test-Driven Development approach. The app relies on the Google Calendar API to fetch upcoming events.
+
 # App Features
 ## Filter Events by City
 ### User Story
@@ -88,7 +91,7 @@ Scenario: Events saved to the user's device that have not been viewed recently O
 
 As a user, I should be able to add the app shortcut to my home screen so that I can open the app faster.
 
-## Gherkin
+### Gherkin
 
 Scenario: The user should be able to add a shortcut for the app to their homescreen.
 - Given the user is on the app's main page.
