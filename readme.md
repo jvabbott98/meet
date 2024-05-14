@@ -7,10 +7,10 @@ so that I can see a list of events taking place in that city.
 
 ### Gherkin
 
-Scenario - When user hasn't searched for a specific city, show upcoming events from all cities.__
-Given the user hasn't searched for any city.
-When the user opens the app.
-Then the user should see a list of upcoming events.
+Scenario - When user hasn't searched for a specific city, show upcoming events from all cities.
+- Given the user hasn't searched for any city.
+- When the user opens the app.
+- Then the user should see a list of upcoming events.
 
 Scenario - User should see a list of suggestions when they search a city.
 Given the main page is open.
