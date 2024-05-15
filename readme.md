@@ -1,4 +1,5 @@
 # Meet App
+
 This app will allow users to search for various events across different cities in order to help them find and attend events that they are interested in. This is a serverless, progressive web application built with React and wile taking a Test-Driven Development approach. The app relies on the Google Calendar API to fetch upcoming events.
 
 # App Features
@@ -114,3 +115,7 @@ Scenario: The user should be able to filter the chart to show specific cities of
 - Given the user is viewing a chart of events across multiple cities.
 - When the user selects cities from a list.
 - Then the chart will show events only across the selected cities.
+
+# Servers
+
+This app will take advantage of serverless functions to help users find events in their cities. This will help the app scale dynamically with peak usage times like midday to evening when more events are likely to take place. It then scale down when usage is lower. Because serverless functions are charged based on usage, this would help save money and resources during slower times of the year. Finally, serverless functions allow more seamless integration with the Google Calendar API.
