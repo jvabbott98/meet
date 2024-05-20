@@ -12,17 +12,17 @@ so that I can see a list of events taking place in that city.
 
 ### Gherkin
 
-Scenario:  When user hasn't searched for a specific city, show upcoming events from all cities.
+Scenario 1:  When user hasn't searched for a specific city, show upcoming events from all cities.
 - Given the user hasn't searched for any city.
 - When the user opens the app.
 - Then the user should see a list of upcoming events.
 
-Scenario: User should see a list of suggestions when they search a city.
+Scenario 2: User should see a list of suggestions when they search a city.
 - Given the main page is open.
 - When the user starts typing in the city textbox.
 - Then the user should receive a list of cities that match what they typed.
 
-Scenario: User can select a city from the suggested list.
+Scenario 3: User can select a city from the suggested list.
 - Given user was typing [city] in the textbox AND the list of suggested cities is showing.
 - When the user selects a city from the list.
 - Then their city should be changed to that city AND the user should recieve a list of upcoming events for that city.
@@ -36,17 +36,17 @@ so that I can see more/less information about an event
 
 ### Gherkin
 
-Scenario: When user has not clicked on a specific event, hide event details.
+Scenario 1: When user has not clicked on a specific event, hide event details.
 - Given the user has searched for a city and has not clicked on an event.
 - When the user selects a city from the list provided after searching for a city.
 - Then the user should see a list of upcoming events for that city.
 
-Scenario: User should be able to see more information about an event by clicking on it.
+Scenario 2: User should be able to see more information about an event by clicking on it.
 - Given a list of events in a given city is presented to the user.
 - When a user selects one of the events.
 - Then more information about that event will be shown to the user.
 
-Scenario: User should be able to hide information about an event by clicking on it or another event.
+Scenario 3: User should be able to hide information about an event by clicking on it or another event.
 - Given the user has selected an event AND can see additional information about that event.
 - When the user clicks on that event again OR selects another event, the additional information will be hidden again.
 
@@ -55,12 +55,12 @@ Scenario: User should be able to hide information about an event by clicking on 
 
 As a user, I should be able to specify the number of events I want to view in the app so that I can see more or fewer events in the event list at once.
 
-Scenario: User should be able to adjust the number of events shown to them on a single page.
+Scenario 1: User should be able to adjust the number of events shown to them on a single page.
 - Given a list of events for a given city is presented to the user.
 - When the user selects the number of events to be shown to them at one time.
 - Then that number of events or fewer will be shown to the user.
 
-Scenario: The user should be able to load additional events on to the page at their discretion.
+Scenario 2: The user should be able to load additional events on to the page at their discretion.
 - Given a limited number of events are presented to the user.
 - When the user selects a [show more events] button.
 - Then more events will be loaded to the page.
