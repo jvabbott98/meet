@@ -8,6 +8,7 @@ describe('<EventList /> component', () => {
         NumberOfEventsComponent = render(<NumberOfEvents />);
       });
 
+
     test('<NumberOfEvents /> contains element with the role of "textbox"', () => {
         const eventsTextbox = NumberOfEventsComponent.queryByRole('textbox');
         expect(eventsTextbox).toBeInTheDocument();
@@ -15,11 +16,16 @@ describe('<EventList /> component', () => {
     });
 
     test('Default value of the input field is 32', () => {
-        x=1;
+        const eventsTextbox = NumberOfEventsComponent.queryByRole('textbox');
+        expect(eventsTextbox.defaultValue).toBe('32');
     });
   
-    test('"Textbox" value changes accordingly when a user types in it', () => {
-        x=1;
+    test('"Textbox" value changes accordingly when a user types in it', async () => {
+        const user =userEvent.setup();
+        const eventsTextbox = NumberOfEventsComponent.queryByRole('textbox');
+        await user.type(eventsTextbox, '{backspace}{backspace}10');
+        expect(eventsTextbox).toHaveValue('10');
     })
   
   });
+
