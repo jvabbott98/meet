@@ -1,17 +1,26 @@
-import { getEvents } from "../api";
+import React, { useState } from "react";
 
-const setEventsEqualToGetEvents = async () => {
-    const events = await getEvents();
+
+
+const Event = ({event}) => {
+
+const [descriptionVisible, setDescriptionVisible] = useState(false);
+
+const handleDescriptionClick = () => {
+    descriptionVisible ? setDescriptionVisible(false) : setDescriptionVisible(true)
 }
 
-const Event = () => {
     return (
-        <div>
-            <li></li>
-            <h1>
-                {}
-            </h1>
-        </div>
+       <li>
+            <h2>{event.summary}</h2>
+            <p>{event.location}</p>
+            <p>{event.created}</p>
+            {descriptionVisible ? <p className='description' >{event.description}</p> : null}
+            <button onClick={handleDescriptionClick} id='show-description'>{descriptionVisible ? 'Hide Description' : 'Show Description'}</button>
+            
+
+       </li>
+       
 
     );
 }

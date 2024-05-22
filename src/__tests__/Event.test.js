@@ -30,11 +30,11 @@ describe('<Event /> component', () => {
     });
 
     test('renders event desctiption button with the title (show description)', () => {
-        expect(EventComponent.queryByText('show description')).toBeInTheDocument();
+        expect(EventComponent.queryByText('Show Description')).toBeInTheDocument();
     })
 
     test("by default, event's description section should be hidden", () => {
-        expect(EventComponent.container.querySelector(',description')).not.toBeInTheDocument();
+        expect(EventComponent.container.querySelector('.description')).not.toBeInTheDocument();
     });
 
     test("shows the description section when the user clicks on the 'show description' button", async () => {

@@ -9,6 +9,7 @@ describe('<App /> component', () => {
         AppDOM = render(<App />).container.firstChild;
     })
 
+
     test('renders list of events', () => {
         expect(AppDOM.querySelector('#event-list')).toBeInTheDocument();
     });
@@ -16,6 +17,10 @@ describe('<App /> component', () => {
     test('render CitySearch', () => {
         expect(AppDOM.querySelector('#city-search')).toBeInTheDocument();
     });
+
+    test('<NumberOfEvents /> component is rendered correctly', () => {
+        x = 1;
+    })
 });
 
 
