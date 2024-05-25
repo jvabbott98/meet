@@ -2,16 +2,23 @@ import React, { useState } from "react";
 
 
 
-const NumberOfEvents = () => {
+const NumberOfEvents = ({setCurrentNOE}) => {
+    const [textboxValue, setTextboxValue] = useState('32');
+
+const handleInputChanged = (event) => {
+    const value = event.target.value;
+    setCurrentNOE(value);
+    setTextboxValue(value);
+}
+
     return (
        <div id='number-of-events' >
         <input
                 type="text"
-                className="number"
+                className="NOE-input"
                 placeholder="Number of Events"
-                defaultValue= {32}
-                // onFocus={() => setShowSuggestions(true)}
-                // onChange={handleInputChanged}
+                value={textboxValue}
+                onChange={handleInputChanged}
             />
        </div>
     );

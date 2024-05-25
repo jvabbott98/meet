@@ -2,6 +2,7 @@ import userEvent from '@testing-library/user-event';
 import { render, within } from '@testing-library/react';
 import App from '../App';
 import { getEvents } from '../api';
+import { waitFor } from '@testing-library/react';
 
 describe('<App /> component', () => {
     let AppDOM;
@@ -29,27 +30,50 @@ describe('<App /> integration', () => {
         const user = userEvent.setup();
         const AppComponent = render(<App />);
         const AppDOM = AppComponent.container.firstChild;
-    
+
         const CitySearchDOM = AppDOM.querySelector('#city-search');
         const CitySearchInput = within(CitySearchDOM).queryByRole('textbox');
-    
+
         await user.type(CitySearchInput, "Berlin");
         const berlinSuggestionItem = within(CitySearchDOM).queryByText('Berlin, Germany');
         await user.click(berlinSuggestionItem);
-    
+
         const EventListDOM = AppDOM.querySelector('#event-list');
-        const allRenderedEventItems = within(EventListDOM).queryAllByRole('listitem');   
-    
+        const allRenderedEventItems = within(EventListDOM).queryAllByRole('listitem');
+
         const allEvents = await getEvents();
         const berlinEvents = allEvents.filter(
-          event => event.location === 'Berlin, Germany'
+            event => event.location === 'Berlin, Germany'
         );
-    
+
         expect(allRenderedEventItems.length).toBe(berlinEvents.length);
         allRenderedEventItems.forEach(event => {
-        expect(event.textContent).toContain("Berlin, Germany");
-      });
-      
-      });
+            expect(event.textContent).toContain("Berlin, Germany");
+        });
+    });
+
+    test('number of events updates when user types in the text-field', async () => {
+        const user = userEvent.setup();     
+        const AppComponent = render(<App />);
+        const AppDOM = AppComponent.container.firstChild;
+
+        const NumberOfEventsDOM = AppDOM.querySelector('#number-of-events');
+        const NumberOfEventsInput = within(NumberOfEventsDOM).queryByRole('textbox');
+
+        await user.type(NumberOfEventsInput, "{backspace}{backspace}10");
+
+        const EventListDOM = AppDOM.querySelector('#event-list');
+
+        // const RenderedEventItems = within(EventListDOM).queryAllByRole('listitem');
+
+        // expect(RenderedEventItems.length).toEqual(10);
+        await waitFor(() => {
+            const RenderedEventItems = within(EventListDOM).queryAllByRole('listitem');
+            expect(RenderedEventItems.length).toEqual(10);
+        });
+
+    });
+
+
 })
 
