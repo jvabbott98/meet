@@ -50,5 +50,5 @@ const CityEventsChart = ({ allLocations, events }) => {
         </ResponsiveContainer>
     );
 }
-
+//Gh pages update
 export default CityEventsChart;
