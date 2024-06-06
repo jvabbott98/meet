@@ -7,7 +7,7 @@ const EventGenresChart = ({ events }) => {
 
     useEffect(() => {
         setData(getData());
-    }, [`${events}`]);
+    }, [events]);
 
     const COLORS = ['#9575CD', '#F06292', '#7986CB', '#4DD0E1', '#81C784'];
 
