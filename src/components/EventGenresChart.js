@@ -28,6 +28,8 @@ const EventGenresChart = ({ events }) => {
         const x = cx + radius * Math.cos(-midAngle * RADIAN) * 1.07;
         const y = cy + radius * Math.sin(-midAngle * RADIAN) * 1.07;
         const labelColor = COLORS[index % COLORS.length];
+        console.log(`Rendering label for ${genres[index]} with color ${labelColor}`);
+        
         return percent ? (
             <text
                 x={x}
